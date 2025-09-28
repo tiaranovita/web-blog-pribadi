@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK Basis Data-Tiara</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #eef2f3, #dfe6e9);
+      color: #2d3436;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 10px;
+      background: url('https://www.transparenttextures.com/patterns/cubes.png'), #0984e3;
+      color: white;
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 5px 0;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+  .menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px; 
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+  }
+
+
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2c3e50;
+    overflow-x: hidden;
+    transition: 0.4s;
+    padding-top: 60px;
+    z-index: 1000;
+  }
+
+  .sidebar a {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+    .sidebar a {
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.3s;
+    }
+
+    .sidebar a img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .sidebar a:hover {
+      background-color: #0984e3;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      background: #6c5ce7;
+      padding: 12px 20px;
+      margin: 8px;
+      border-radius: 30px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: #341f97;
+      transform: scale(1.1);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      background: white;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      border-left: 6px solid #0984e3;
+      padding-left: 10px;
+    }
+
+    .illustration {
+      max-width: 250px;
+      border-radius: 12px;
+      float: right;
+      margin: 10px 0 10px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .about-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .about-box img {
+      max-width: 220px;
+      border-radius: 50%;
+      border: 3px solid #0984e3;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .about-box div {
+      flex: 1;
+    }
+
+    .blog-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .post {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .blog-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .read-more {
+      color: #0070f3;
+      text-decoration: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .read-more:hover {
+      color: #0056b3;
+    }
+
+    .post-detail {
+      margin-top: 15px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 4px solid #0984e3;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: #2c3e50;
+      color: white;
+      border-top-left-radius: 30% 15%;
+      border-top-right-radius: 30% 15%;
+    }
+
+    .contact-sidebar {
+  position: fixed;
+  top: 40%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  z-index: 1000;
+}
+
+.contact-sidebar a {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 8px;
+  display: block;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.contact-sidebar a img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.contact-sidebar a:hover {
+  background: #0984e3;
+  transform: translateX(-5px);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Basis Data</h1>
+    <p>Web/Blog Pribadi - Tiara</p>
+    <!-- Tombol menu hamburger -->
+    <button class="menu-toggle" onclick="openMenu()">☰</button>
+  </header>
+
+  <!-- Sidebar Menu -->
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="closeMenu()">×</span>
+    <a href="#home"><img src="https://cdn-icons-png.flaticon.com/512/1946/1946433.png" alt="Home"> Home</a>
+    <a href="#about"><img src="https://cdn-icons-png.flaticon.com/512/2922/2922561.png" alt="About"> About Me</a>
+    <a href="#post"><img src="https://cdn-icons-png.flaticon.com/512/29/29302.png" alt="Materi"> Materi</a>
+    <a href="https://www.ubpkarawang.ac.id" target="_blank">
+      <img src="https://admin-spada.kemdikbud.go.id/images/logo/logo-universitas-buana-perjuangan-karawang.png" 
+         alt="UBP Karawang" style="width:22px; height:22px;"> 
+        UBP Karawang
+    </a>
+  </div>
+
+
+  <!-- Home -->
+  <section id="home">
+    <div class="container">
+      <h2>Home</h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946433.png" class="illustration" alt="Home">
+      <p>Selamat datang di website pribadi saya 👋.</p>
+      <p>Website ini berfungsi sebagai <b>catatan belajar</b> sekaligus media berbagi seputar <b>Basis Data</b> dalam perkuliahan saya di <b>Universitas Buana Perjuangan Karawang</b>.</p>
+      <p>Yang bisa kamu temukan di sini:</p>
+      <ul>
+        <li>📘 Penjelasan dasar <b>Basis Data</b></li>
+        <li>🗂️ Materi <b>Conceptual Database</b> & <b>Physical Model</b></li>
+        <li>✍️ Catatan dan harapan selama kuliah</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <div class="about-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/2922/2922561.png" alt="Profile">
+        <div>
+          <p>Halo, saya <b>Tiara Novita Sari</b> 👩‍💻, mahasiswa <b>Teknik Informatika</b> di Universitas Buana Perjuangan Karawang.</p>
+          <p>Saya memiliki ketertarikan dalam:</p>
+          <ul>
+            <li>💾 Basis Data & SQL</li>
+            <li>🌐 Pengembangan Web</li>
+            <li>📊 Analisis Sistem Informasi</li>
+          </ul>
+          <p>Website ini saya buat sebagai bagian dari tugas kuliah <b>MK Basis Data</b>, juga sebagai media berbagi ilmu dan pengalaman belajar dengan mahasiswa lainnya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="post" class="section post">
+      <nav>
+    <a href="#post1">Harapan MK Basis Data</a>
+    <a href="#post2">Basis Data</a>
+    <a href="#post3">Conceptual Database</a>
+    <a href="#post4">Physical Model</a>
+    </nav>
+    <div class="container">
+      <h2>Basis Data</h2>
+      <div class="blog-grid">
+
+        <!-- Post 1 -->
+        <article id="post1" class="post">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.4z8b-XPbDNaZ1AMvrrAAXgHaEw?pid=ImgDet&w=474&h=304&rs=1&o=7&rm=3" alt="Harapan Basis Data" class="blog-image">
+          <div class="blog-content">
+            <h3>Harapan dari MK Basis Data</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p>Saya berharap dari mata kuliah Basis Data dapat:</p>
+                <ul>
+                    <li>Memahami konsep dasar basis data dan fungsinya dalam pengelolaan data.</li>
+                    <li>Mampu merancang Entity Relationship Diagram (ERD) dengan benar.</li>
+                    <li>Terampil menulis query SQL untuk mengelola data (SELECT, INSERT, UPDATE, DELETE).</li>
+                    <li>MMemahami bagaimana implementasi basis data dalam aplikasi nyata.</li>
+                    <li>Mampu mengembangkan proyek berbasis database yang dapat digunakan untuk kebutuhan nyata.</li>
+                    <li>Memahami prinsip keamanan basis data, termasuk pengaturan hak akses, enkripsi data penting, dan penerapan constraint untuk menjaga integritas data.</li>
+                </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article id="post2" class="post">
+          <img src="https://www.griyawebsite.com/wp-content/uploads/2021/02/DATABASE-img.jpg" alt="Definisi Basis Data" class="blog-image">
+          <div class="blog-content">
+            <h3>Apa itu Basis Data?</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p>Basis data adalah kumpulan data yang terorganisir dan saling berhubungan, yang disimpan dalam sistem komputer untuk memudahkan pengelolaan dan akses informasi.</p>
+              <p><b>Fungsi dan pentingnya Basis Data</b></p>
+              <ul>
+                <li>Pengelolaan Data: Basis data memungkinkan penyimpanan dan pengelolaan data secara terstruktur, sehingga memudahkan pengguna dalam mencari dan mengelola informasi yang dibutuhkan.</li>
+                <li>Akses Informasi: Dengan basis data, pengguna dapat mengakses informasi dengan cepat, yang sangat penting dalam konteks bisnis dan organisasi. Misalnya, perusahaan dapat menyimpan data pelanggan, transaksi, dan laporan keuangan dalam basis data untuk pengambilan keputusan yang lebih baik.</li>
+                <li>Keamanan Data: Basis data dilengkapi dengan mekanisme keamanan untuk melindungi data dari akses yang tidak sah, termasuk otentikasi, otorisasi, dan enkripsi.</li>
+                <li>Analisis Data: Basis data memungkinkan pengguna untuk melakukan analisis data yang kompleks dan menghasilkan laporan yang akurat, yang sangat berguna dalam pengambilan keputusan strategis.</li>
+              </ul>
+              <p><b>Jenis-Jenis Basis Data</b></p>
+              <ul>
+                <li>Basis Data Relasional: Menggunakan tabel untuk menyimpan data yang saling terkait.</li>
+                <li>Basis Data NoSQL: Cocok untuk menyimpan data yang tidak terstruktur, seperti dokumen atau JSON.</li>
+                <li>Basis Data Berbasis Dokumen: Ideal untuk data berbasis dokumen, seperti file XML atau JSON.</li>
+                <li>Basis Data Grafik: Menggunakan node dan edge untuk menunjukkan hubungan antar data.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article id="post3" class="post">
+          <img src="https://www.nesabamedia.com/wp-content/uploads/2019/10/Data.png" alt="ERD" class="blog-image">
+          <div class="blog-content">
+            <h3>Apa itu Conceptual Database?</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p>Conceptual Design Database adalah tahapan pertama dalam desain database. Tujuan dari tahapan ini adalah untuk merancang database yang independen dari database software dan detail fisik. Tahapan ini akan menghasilkan, conceptual data model yang menjelaskan entitas data, atribut, hubungan antara tabel, dan constraints di suatu database. Design ini bersifat deskriptif dan naratif.</p>
+              <p>Conceptual database memiliki 4 tahapan yaitu:</p>
+              <p><b>Analisis dan Persyaratan Data</b></p>
+              <P>Tahapan pertama dalam pengembangan conceptual database desain adalah mencari tahu karakteristik dari elemen data yang ada. Karakteristik dari data eleman yang benar adalah yang bisa diubah menjadi suatu informasi. Maka perancang database harus fokus pada:</P>
+              <ul>
+                <li>Informasi yang dibutuhkan, output apa yang harus dapat dihasilkan oleh system tersebut, informasi apa yang dihasilkan oleh system yang sekarang berjalan, dan seperti apa kualitas dari informasi yang dibutuhkan.</li>
+                <li>Pengguna informasi, siapakah yang akan menggunakan informasi tersebut? Bagaimana informasi tersebut akan digunakan? Bagaimana tampilan data untuk end-user?</li>
+                <li>Sumber informasi, dari mana informasi tersebut dapat ditemukan? Bagaimana cara untuk meng-extract informasi tersebut?</li>
+                <li>Komposisi Informasi, elemen data apa yang dibutuhkan untuk menghasilkan informasi tersebut? Atribut apa saja yang dibutuhkan? Bagaimana hubungan antar data? Seberapa sering data akan digunakan?</li>
+              </ul>
+              <P><b>Normalisasi dan Perancangan Hubungan Antar Entitas</b></P>
+              <p>Sebelum mengembangkan ER model, perancang database harus menentukan standard yang sesuai untuk dokumentasi dari desain database. Proses mengembangkan peraturan bisnis dan merancang conceptual database model menggunakan ERD dapat dilakukan dengan menggunak langkah – langkah berikut:</p>
+              <ul>
+                <li>Identifikasi, analisa, dan menyesuaikan peraturan bisnis</li>
+                <li>Identifikasi entitas utama menggunakan hasil dari langkah pertama</li>
+                <li>Menetapkan hubungan antara entitas menggunakan hasil dari Langkah pertama dan ke-2</li>
+                <li>Menetapkan atribut, primary keys, dan foreign keys untuk setiap entitas</li>
+                <li>Melakukan normalisasi entitas</li>
+                <li>Menyelesaikan ERD</li>
+                <li>Melakukan validasi ERD dengan informasi end-users dan processing requirements.</li>
+                <li>Menyesuaikan ERD dengan hasil yang didapat dari Langkah ke-7</li>
+              </ul>        
+              <P><b>Verifikasi data model</b></P>     
+              <p>Tahapan verifikasi data model merupakan salah satu dari tahapan terakhir dan terpenting di fase conceptual database design. Pada tahapan ini ERD harus di verifikasi dengan system awal untuk memastikan bahwa model database dapat mendukung system dengan baik. Verifikasi mengharuskan model database dijalankan melalui serangkaian pengujian terhadap:</p>
+              <ul>
+                <li>Tampilan data untuk user</li>
+                <li>Semua operasi yang diperlukan: SELECT, INSERT, UPDATE, dan DELETE.</li>
+                <li>hak akses dan keamanan</li>
+                <li>requirements dan constraints data yang diperlukan oleh bisnis.</li>
+              </ul>
+              <p><b>Distributed database design</b></p>
+              <p>Tidak semua database memerlukannya, terkadang sebuah database mungkin perlu untuk didistribusikan di antara beberapa lokasi yang tersebar. Proses untuk meng-akses database juga bisa berbeda di setiap lokasinya. Sebagai contoh, proses ritel dan proses penyimpanan gudang cenderung dilakukan di lokasi yang berbeda. Jika data dan proses basis data akan didistribusikan di seluruh sistem, bagian dari database, yang dikenal sebagai fragmen database, dapat berada di beberapa lokasi fisik.</p>
+            </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article id="post4" class="post">
+          <img src="https://cdn.educba.com/academy/wp-content/uploads/2019/02/introduction-to-mysql.jpg" alt="Physical Model" class="blog-image">
+          <div class="blog-content">
+            <h3>Apa itu Physical Model?</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p>Physical model adalah representasi fisik dari suatu objek, sistem, atau konsep yang digunakan untuk mempelajari, memahami, dan mengkomunikasikan informasi tentangnya. Model ini dibuat dengan menggunakan bahan dan teknik tertentu sehingga dapat merepresentasikan karakteristik dan perilaku objek aslinya secara lebih nyata.</p>
+              <p><b>Jenis-Jenis Physical Model</b></p>
+              <ul>
+                <li>Model Skala</li>
+                <P>Model skala adalah representasi yang menggambarkan objek atau sistem dalam ukuran yang lebih kecil. Model ini sering digunakan dalam arsitektur, teknik sipil, dan desain industri untuk memvisualisasikan bentuk, proporsi, dan detail dari suatu objek.</P>
+                <li>Model Prototipe</li>
+                <p>Model prototipe adalah versi awal dari sebuah produk atau sistem. Tujuannya adalah untuk menguji aspek-aspek krusial seperti fungsionalitas, keandalan, dan kinerjanya sebelum produk tersebut diproduksi secara massal atau dalam skala penuh. Model ini digunakan dalam berbagai sektor terutama di Industri manufaktur, Teknik mesin, Rekayasa perangkat lunak.</p>
+                <li>Model Simulasi</li>
+                <p>Model simulasi, yang merupakan representasi berbasis matematika atau komputer, berfungsi untuk memodelkan dan memprediksi perilaku suatu objek atau sistem. Model-model ini digunakan di berbagai bidang, termasuk ilmu komputer, ilmu lingkungan, dan keuangan.</p>
+                <li>Model Konseptual</li>
+                <p>Model konseptual merupakan gambaran abstrak dari sebuah ide, konsep, atau teori yang berfungsi untuk memperlihatkan serta menjelaskan keterkaitan antar elemen yang ada di dalamnya. Jenis model ini umumnya dimanfaatkan dalam bidang ilmu sosial, psikologi, maupun ilmu politik.</p>
+              </ul>
+              <p><b>Manfaat Physical Model</b></p>
+              <p>Penggunaan physical model memiliki manfaat yang signifikan dalam berbagai bidang. Berikut adalah beberapa manfaat utamanya:</p>
+              <ul>
+                <li>Visualisasi yang Lebih Nyata</li>
+                <p>Melalui penggunaan physical model, pengguna dapat memperoleh pemahaman yang lebih jelas dan mendetail mengenai suatu objek atau sistem. Model ini memberikan kesempatan untuk mengamati karakteristik, proporsi, serta perilaku objek secara langsung dengan cara yang tidak bisa dicapai hanya melalui representasi verbal atau dua dimensi.</p>
+                <li>Pengujian dan Perbaikan</li>
+                <p>Physical model memberi kesempatan bagi pengguna untuk melakukan uji coba serta penyempurnaan terhadap suatu konsep, desain, atau sistem sebelum diimplementasikan secara penuh. Melalui model ini, pengguna dapat menemukan dan menyelesaikan kemungkinan masalah, mencoba berbagai alternatif desain, serta meningkatkan kinerja sistem sebelum melakukan investasi dalam skala besar.</p>
+                <li>Komunikasi yang Efektif</li>
+                <p>Model fisik berfungsi sebagai alat komunikasi yang sangat efektif untuk menyajikan ide, konsep, atau desain kepada orang lain.Model fisik berfungsi sebagai alat komunikasi yang sangat efektif untuk menyajikan ide, konsep, atau desain kepada orang lain. Keuntungan Komunikasi Dengan menggunakan representasi fisik, pengguna dapat berbagi informasi dengan cara yang Lebih jelas, Lebih konkret (nyata), Lebih mudah dipahami. Hal ini memastikan bahwa berbagai pihak yang terlibat dapat memahami materi yang disampaikan secara seragam dan tanpa kesulitan, jauh lebih baik daripada deskripsi lisan atau gambar abstrak.</p>
+                <li>Pendidikan dan Pembelajaran</li>
+                <p>Model fisik berfungsi sebagai alat bantu yang berharga dalam pendidikan dan proses pembelajaran. Model ini secara efektif memungkinkan siswa atau peserta pelatihan untuk Mempelajari dan memahami konsep dengan cara yang praktis dan interaktif, Secara signifikan meningkatkan pemahaman mereka terhadap materi, Mendorong keterlibatan yang lebih mendalam dalam proses belajar.</p>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<!-- Sidebar Kontak di kanan -->
+<div class="contact-sidebar">
+  <a href="https://wa.me/6285760658312" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
+  <a href="https://www.instagram.com/itsme_pcrrem?igsh=NmUxdTh2amh2dXY2" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
+  <a href="https://www.tiktok.com/@itsme_yayaa040?is_from_webapp=1&sender_device=pc" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046127.png" alt="TikTok">
+  </a>
+</div>
+
+  <script>
+    function togglePost(link) {
+      const detail = link.nextElementSibling;
+      if (detail.style.display === "none") {
+        detail.style.display = "block";
+        link.textContent = "Tutup ↑";
+      } else {
+        detail.style.display = "none";
+        link.textContent = "Baca Selengkapnya →";
+      }
+    }
+    function openMenu() {
+      document.getElementById("sidebar").style.width = "180px";
+    }
+    function closeMenu() {
+      document.getElementById("sidebar").style.width = "0";
+    }
+  </script> 
+
+  </script>
+
+  </script>
+
+
+  <footer>
+    <p>&copy; 2025 Tiara - MK Basis Data</p>
+  </footer>
+</body>
+</html>
