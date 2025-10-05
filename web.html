@@ -214,6 +214,24 @@
       border-radius: 8px;
     }
 
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    margin-top: 20px;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
     footer {
       text-align: center;
       margin-top: 40px;
@@ -317,6 +335,7 @@
     <a href="#post2">Basis Data</a>
     <a href="#post3">Conceptual Database</a>
     <a href="#post4">Physical Model</a>
+    <a href="#post5">atribut, entitas, dan relasi dalam ERD</a>
     </nav>
     <div class="container">
       <h2>Basis Data</h2>
@@ -440,9 +459,43 @@
             </div>
           </div>
         </article>
+
+        <article id="post5" class="post">
+          <img src="https://tse3.mm.bing.net/th/id/OIP.xJveNGCJkzMC-oTmaEb_sgHaEd?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" 
+              alt="atribut, entitas, dan relasi dalam ERD" 
+              class="blog-image">
+          <div class="blog-content">
+            <h3>Apa itu atribut, entitas, dan relasi dalam ERD?</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p><b>Atribut, Entitas, dan Relasi dalam ERD</b></p>
+              <p>Atribut, entitas, dan relasi adalah komponen penting dalam Entity Relationship Diagram (ERD) yang membantu dalam perancangan dan analisis basis data. Berikut adalah penjelasan mengenai ketiga komponen ini:</p>
+              <ul>
+                <li><b>Atribut:</b>Atribut adalah karakteristik atau sifat dari entitas yang digunakan untuk mendeskripsikan dan mengidentifikasi entitas secara unik. Atribut dapat berupa atribut kunci (key attributes) yang digunakan untuk menentukan entitas secara unik, atribut simpel (simple attributes) yang memiliki nilai tunggal, atribut multinilai (multivalue attributes) yang memiliki sekelompok nilai untuk setiap entitas, dan atribut gabungan (composite attributes) yang terdiri dari beberapa atribut yang lebih kecil.</li>
+                <li><b>Entitas:</b>Entitas adalah himpunan objek nyata atau abstrak yang dapat diidentifikasi secara unik dalam sistem. Entitas digambarkan dengan kotak persegi panjang.</li>
+                <li><b>Relasi</b>Relasi adalah hubungan antar entitas yang menunjukkan keterkaitan data dalam basis, seperti 1:1, 1:N, atau N:M. Relasi digambarkan dengan belah ketupat. Dengan memahami atribut, entitas, dan relasi dalam ERD, pengembang dapat merancang basis data yang terstruktur dan efisien, serta memudahkan dalam pengembangan perangkat lunak dan desain basis data.</li>Akses Informasi: Dengan basis data, pengguna dapat mengakses informasi dengan cepat, yang sangat penting dalam konteks bisnis dan organisasi. Misalnya, perusahaan dapat menyimpan data pelanggan, transaksi, dan laporan keuangan dalam basis data untuk pengambilan keputusan yang lebih baik.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
+
+  <section id="video">
+  <div class="container">
+    <h2>Video Pembelajaran</h2>
+    <div class="video-wrapper">
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/B7ZA0jYTeoo?si=mAGz8gJkKCSvuwfG" 
+        title="Cara Instalasi MySQL DBMS di Windows" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
 
 <div class="contact-sidebar">
   <a href="https://wa.me/6285760658312" target="_blank">
@@ -484,4 +537,3 @@
   </footer>
 </body>
 </html>
-
