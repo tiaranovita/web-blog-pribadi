@@ -336,6 +336,8 @@
     <a href="#post3">Conceptual Database</a>
     <a href="#post4">Physical Model</a>
     <a href="#post5">atribut, entitas, dan relasi dalam ERD</a>
+    <a href="#post6">Primary Key, Foreign Key, dan Candidate Key</a>
+    <a href="#post7">Relation pada ERD dan Many-to-Many</a>
     </nav>
     <div class="container">
       <h2>Basis Data</h2>
@@ -475,6 +477,84 @@
                 <li><b>Entitas:</b>Entitas adalah himpunan objek nyata atau abstrak yang dapat diidentifikasi secara unik dalam sistem. Entitas digambarkan dengan kotak persegi panjang.</li>
                 <li><b>Relasi</b>Relasi adalah hubungan antar entitas yang menunjukkan keterkaitan data dalam basis, seperti 1:1, 1:N, atau N:M. Relasi digambarkan dengan belah ketupat. Dengan memahami atribut, entitas, dan relasi dalam ERD, pengembang dapat merancang basis data yang terstruktur dan efisien, serta memudahkan dalam pengembangan perangkat lunak dan desain basis data.</li>Akses Informasi: Dengan basis data, pengguna dapat mengakses informasi dengan cepat, yang sangat penting dalam konteks bisnis dan organisasi. Misalnya, perusahaan dapat menyimpan data pelanggan, transaksi, dan laporan keuangan dalam basis data untuk pengambilan keputusan yang lebih baik.</li>
               </ul>
+            </div>
+          </div>
+        </article>
+
+        <article id="post6" class="post">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirD9lsUcWQRBOQMrKu7MEq5n_SqbSyow56UXhQrrTMKKcNcRj5Pk4Drv4s-n7qwKawnc2fOPljB3MoOhzvjAhdaZSweZUBaDuvGwWjH1g8q-xQHLSGKQ8Potkk5rBIHXRYcywx0O-L3B1hKS1q06OBvCkWxNcBE7_J33znFMZdoX_exFflWlFHh_f1/w1200-h630-p-k-no-nu/erd-school%201.jpeg" 
+          alt="Primary Key, Foreign Key, dan Candidate Key"
+          class="blog-image">
+          <div class="blog-content">
+            <h3>Apa itu Primary Key, Foreign Key, dan Candidate Key. Berikan masing-masing 5 contoh penerapan pada ERD.</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p>Dalam pembuatan database relasional, ada tiga jenis key penting yang digunakan untuk membedakan dan menghubungkan data, yaitu Primary Key, Foreign Key, dan Candidate Key.</p>
+              <p><b>Primary Key</b></p>
+              <p>Primary Key adalah atribut unik dalam sebuah tabel yang berfungsi untuk mengenali setiap data secara khusus. Nilainya tidak boleh kosong dan tidak boleh ada yang sama.</p>
+              <p>contoh penerapan ERD:</p>
+              <ol>
+                <li>Tabel Mahasiswa → kolom NIM sebagai Primary Key.</li>
+                <li>Tabel Dosen → kolom NIP.</li>
+                <li>Tabel MataKuliah → kolom Kode_MK.</li>
+                <li>Tabel Barang → kolom Kode_Barang.</li>
+                <li>Tabel Pelanggan → kolom ID_Pelanggan.</li>
+              </ol>
+              <p><b>Foreign Key</b></p>
+              <p>Foreign Key digunakan untuk menghubungkan antar tabel dalam database. Nilai foreign key di satu tabel merupakan primary key dari tabel lain, sehingga tercipta hubungan antar entitas.</p>
+              <p>contoh di ERD:</p>
+              <ol>
+                <li>Tabel Transaksi → ID_Pelanggan merujuk ke Pelanggan(ID_Pelanggan).</li>
+                <li>Tabel Nilai → NIM merujuk ke Mahasiswa(NIM).</li>
+                <li>Tabel Nilai → Kode_MK merujuk ke MataKuliah(Kode_MK).</li>
+                <li>Tabel Pesanan → Kode_Barang merujuk ke Barang(Kode_Barang).</li>
+                <li>Tabel Karyawan → ID_Departemen merujuk ke Departemen(ID_Departemen).</li>
+              </ol>
+              <p><b>Candidate Key</b></p>
+              <p>Candidate Key merupakan sekumpulan atribut yang berpotensi menjadi Primary Key, karena nilainya unik dan dapat digunakan untuk mengidentifikasi data.</p>
+              <p>contoh di ERD:</p>
+              <ol>
+                <li>Tabel Mahasiswa → NIM dan Email.</li>
+                <li>Tabel Pelanggan → ID_Pelanggan dan No_Telp.</li>
+                <li>Tabel Karyawan → NIK dan Email_Karyawan.</li>
+                <li>Tabel Dosen → NIP dan Email_Dosen.</li>
+                <li>Tabel Barang → Kode_Barang dan Barcode.</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <article id="post7" class="post">
+          <img src="https://www.ssp.sh/brain/_img/feature/gen/many-to-many-relationships.webp" 
+              alt="Relation pada ERD dan Many-to-Many" 
+              class="blog-image">
+          <div class="blog-content">
+            <h3>Apa itu Relation pada ERD, dan mengapa many-to-many tidak baik digunakan pada ERD.</h3>
+            <a href="javascript:void(0)" class="read-more" onclick="togglePost(this)">Baca Selengkapnya →</a>
+            <div class="post-detail" style="display:none;">
+              <p>Apa itu Relation di ERD?</p>
+              <p>Dalam Entity Relationship Diagram (ERD), relation (hubungan) menggambarkan keterkaitan antar entitas atau tabel. Hubungan ini menjelaskan bagaimana data saling terhubung di dalam sistem database.</p>
+              <p>Jenis-jenis hubungan (relation):</p>
+              <ol>
+                <li><b>One-to-One (1:1)</b> → Satu data di tabel A berhubungan dengan satu data di tabel B. Contoh: Satu siswa memiliki satu kartu pelajar.</li>
+                <li><b>One-to-Many (1:N)</b>  → Satu data di tabel A bisa berhubungan dengan banyak data di tabel B. Contoh: Satu dosen mengajar banyak mahasiswa.</li>
+                <li><b>Many-to-Many (M:N)</b> → Banyak data di tabel A bisa terhubung dengan banyak data di tabel B. Contoh: Banyak mahasiswa bisa mengambil banyak mata kuliah.</li>
+              </ol>
+              <p>Mengapa Many-to-Many Tidak Disarankan di ERD?</p>
+              <p>Relasi many-to-many tidak efisien jika langsung diterapkan pada database, karena:</p>
+              <ul>
+                <li>Data bisa menjadi duplikat atau tidak konsisten.</li>
+                <li>Struktur tabel menjadi rumit dan sulit dikelola.</li>
+                <li>Sulit dilakukan query atau update data.</li>
+              </ul>
+              <p>Contoh penerapan:</p>
+              <p>Relasi antara Mahasiswa dan MataKuliah dipecah menjadi:</p>
+              <p>Mahasiswa (NIM)</p>
+              <p>↓</p>
+              <p>KRS (NIM, Kode_MK)</p>
+              <p>↓</p>
+              <p>MataKuliah (Kode_MK)</p>
+              <p>Dengan cara ini, data menjadi lebih terstruktur dan mudah diatur</p>
             </div>
           </div>
         </article>
